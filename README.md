@@ -100,7 +100,7 @@ Metrics
 
   Model In Action
   --
-
+  Refer to [**Test Result**](https://drive.google.com/drive/folders/1EG0EGvmKO6FwzRNillGnwuHHe-R2QwsW?usp=sharing) dir for outputs on unseen samples from the same dataset (Homogeneous source)
   #### -> Unseen Sample_Same Dataset [Level - Individual]
   <img width="964" height="931" alt="Untitled design(1)" src="https://github.com/user-attachments/assets/f4ea5554-08e4-4c13-8c0e-f4f07008db87" />
 
@@ -108,7 +108,7 @@ Metrics
   <img width="853" height="905" alt="Untitled design(2)" src="https://github.com/user-attachments/assets/fac6d597-f5c1-4fec-82cf-8a3ed1480c40" />
 
   #### -> Different Dataset 
-  Refer to [**Lab's Result**](https://drive.google.com/drive/folders/16p_cFjGeRC1QI63rjXC9HX31stbQXp5-?usp=sharing) dir for outputs on samples which are independently sourced from a different dataset (Heterogenous source)
+  Refer to [**Lab's Result**](https://drive.google.com/drive/folders/16p_cFjGeRC1QI63rjXC9HX31stbQXp5-?usp=sharing) dir for outputs on samples which are independently sourced from a different dataset (Heterogeneous source)
 
 
   Usage
