@@ -212,29 +212,33 @@ class Trainer:
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Run K-Fold Cross-Validation for YOLO")
-    parser.add_argument('--data_dir', type=str, default="./", help="Path to dataset directory")
+    parser.add_argument('--fold_base_dir', type=str, default="dataset_kfold_5", help="Base directory for K-Fold dataset")
     parser.add_argument('--n_splits', type=int, default=5, help="Number of folds for cross-validation")
     parser.add_argument('--project_name', type=str, default="UniformDetection_KFold", help="Name for the project directory")
     parser.add_argument('--fold_exist', type=bool, default=False, help="Whether folds exist, otherwise the user has to generate folds using KFold_gen.py")
-    parser.add_argument('--fold_base_dir', type=str, default="dataset_kfold_5", help="Base directory for K-Fold dataset")
+    
     args = parser.parse_args()
+    if args.fold_exist:
+        obj = Trainer(
+            data_dir=args.fold_base_dir,
+            n_splits=args.n_splits,
+            project_name=args.project_name
+        )
 
-    obj = Trainer(
-        data_dir=args.data_dir,
-        n_splits=args.n_splits,
-        project_name=args.project_name
-    )
 
+        custom_config = {
+            'epochs': 250,       
+            'batch': 16,         
+            'imgsz': 640,
+            'patience': 100,
 
-    custom_config = {
-        'epochs': 250,       
-        'batch': 16,         
-        'imgsz': 640,
-        'patience': 100,
+        }
 
-    }
+        print("Starting K-Fold Training...")
+        results = obj.run_kfold_training(config=custom_config)
 
-    print("Starting K-Fold Training...")
-    results = obj.run_kfold_training(config=custom_config)
+        print("\nK-Fold Training Complete!")
 
-    print("\nK-Fold Training Complete!")
+    else:
+        print("Please generate folds using KFold_gen.py before running this script.")
+        print("Exiting...")
