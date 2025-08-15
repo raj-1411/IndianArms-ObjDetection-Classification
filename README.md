@@ -120,23 +120,26 @@ Metrics
     |      |----J&K
     |
     |----dataset_kfold_5
-    |     |----Fold1
-    |          |----train
-    |              |----images
-    |              |----labels
-    |          |----valid
-    |     |----Fold2
-    |     |----Fold3
-    |     |----Fold4
-    |     |----Fold5
+    |      |----Fold1
+    |             |----train
+    |             |      |----images
+    |             |      |----labels
+    |             |
+    |             |----valid
     |
-    |----test
-    |      |----images
-    |      |----labels
+    |      |----Fold2
+    |      |----Fold3
+    |      |----Fold4
+    |      |----Fold5
     |
-    |----train      
-    |      |----images
-    |      |----labels
+    |----dataset
+    |      |----test
+    |      |     |----images
+    |      |     |----labels
+    |      |
+    |      |----train      
+    |            |----images
+    |            |----labels
     |
     |----weights
     |      |
@@ -148,6 +151,24 @@ Metrics
     |----outsource_negatives.py
     |----train.py
     |----predict.py
+
+
+  #### Model Weights
+  -> Top 2 performing folds - F4 and F5 is linked and available for download
+   ---- [F4 wts](https://drive.google.com/file/d/11V_Ar4YqN52RnjSk272EiYmJinGuUpPw/view?usp=sharing)
+   , [F5 wts](https://drive.google.com/file/d/1RgnX-96hDz1oKc39vKnMO_9JzqvlUQhw/view?usp=sharing)
+
+  #### Folds Generation
+  
+    python KFold_gen.py --data_dir dataset --n_splits 5
+  
+  #### Training
+  
+    python train.py --fold_base_dir dataset_kfold_5 --n_splits 5 --project_name UniformDetection_KFold --fold_exist True
+
+  #### Inference
+
+    python predict.py --model_weights weights/best.pt --test_images_folder Lab\'s/BSF --results_folder Lab\'s/results/BSF
   
 
   
