@@ -1,12 +1,18 @@
 import os
 from ultralytics import YOLO
 from PIL import Image
+import argparse
 
 
-model_weights_path = 'weights/best.pt'  
-catg = 'BSF' # BSF, J&K or CRPF
-test_images_folder = f'../Lab\'s/{catg}'
-results_folder = f'Lab\'s/results/{catg}'
+parser = argparse.ArgumentParser(description="Run YOLO11 inference on test images")
+parser.add_argument('--model_weights', type=str, default='weights/best.pt', help='Path to the YOLO model weights')
+parser.add_argument('--test_images_folder', type=str, default='Lab\'s/BSF', help='Folder containing test images')
+parser.add_argument('--results_folder', type=str, default='Lab\'s/results/BSF', help='Folder to save results')
+args = parser.parse_args()
+
+model_weights_path = args.model_weights
+test_images_folder = args.test_images_folder
+results_folder = args.results_folder
 
 model = YOLO(model_weights_path)
 
