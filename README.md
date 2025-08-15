@@ -109,6 +109,45 @@ Metrics
   Refer to **Lab's Result** dir for outputs on samples which are independently sourced from a different dataset (Heterogenous source)
 
 
+  Usage
+  --
+
+  #### Dir Orgaization
+    |
+    |----Labs's
+    |      |----BSF
+    |      |----CRPF
+    |      |----J&K
+    |
+    |----dataset_kfold_5
+    |     |----Fold1
+    |          |----train
+    |              |----images
+    |              |----labels
+    |          |----valid
+    |     |----Fold2
+    |     |----Fold3
+    |     |----Fold4
+    |     |----Fold5
+    |
+    |----test
+    |      |----images
+    |      |----labels
+    |
+    |----train      
+    |      |----images
+    |      |----labels
+    |
+    |----weights
+    |      |
+    |      |----best.pt
+    |      
+    |
+    |----get_bg_patches.py
+    |----KFold_gen.py
+    |----outsource_negatives.py
+    |----train.py
+    |----predict.py
   
 
   
