@@ -125,7 +125,7 @@ class YOLOKFoldValidator:
 if __name__ == "__main__":
 
     argument_parser = argparse.ArgumentParser(description="Run K-Fold Cross-Validation for YOLO")
-    argument_parser.add_argument('--data_dir', type=str, default="./", help="Path to dataset directory")
+    argument_parser.add_argument('--data_dir', type=str, default="dataset", help="Path to dataset directory")
     argument_parser.add_argument('--n_splits', type=int, default=5, help="Number of folds for cross-validation")
     
     args = argument_parser.parse_args()
