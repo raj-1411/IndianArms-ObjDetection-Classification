@@ -14,6 +14,8 @@ For Type I issue, the major problem that the model faced was ghost prediction (*
 
 For Type II issue, challenges were totally different. Unrelated **tricky** data points that can challenge the softbed of training data were missing. Outsourcing these samples were important to make the model holistic in terms of real world deployment. Data points with description "military vehicle interior empty"/"camouflage pattern fabric". 60 samples were scraped off using a script with 15 different prompts and the whole of the image were annotated as **BG** class.
 
+Alternative dataset - [Lab's](https://drive.google.com/drive/folders/1OiQT6eJRwdk6aP0cf6JBsJ7W2bO5Ccdp)  (not annotated)
+
 ## Working Principle
 
 Bounding boxes work on the core principle of maximising the probability for the object to lie inside the box. It becomes necessary for the detector to correctly indetify humans/partial human-like figure initially and map out a box around the region of interest (in this case a person wearing a uniform). Here we leverage YOLO frameworks with the specialisation of object detection and classification only. 
@@ -155,7 +157,7 @@ Metrics
 
   #### Model Weights
   -> Top 2 performing folds - F4 and F5 is linked and available for download
-   ---- [F4 wts](https://drive.google.com/file/d/11V_Ar4YqN52RnjSk272EiYmJinGuUpPw/view?usp=sharing)
+   - [F4 wts](https://drive.google.com/file/d/11V_Ar4YqN52RnjSk272EiYmJinGuUpPw/view?usp=sharing)
    , [F5 wts](https://drive.google.com/file/d/1RgnX-96hDz1oKc39vKnMO_9JzqvlUQhw/view?usp=sharing)
 
   #### Folds Generation
