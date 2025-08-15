@@ -1,10 +1,10 @@
 # IndianArms-ObjDetection-Classification
 
-Indian Arms span through a diversified set of groups that serve for the country. Every state has their own version of State Police that adds further types of Indian Civil service men, hence the need for varied uniforms. With varied uniforms there exists a need for proper knowledge on uniform identification. Automating this requires a two step analogy - Object Detection (Humans in Uniform) and Object Identification/Classification.
+Indian Arms span through a diversified set of groups that serve for the country. Every state has their own version of State Police that adds further types of Indian Civil service men, hence the need for varied uniforms. With varied uniforms there exists a need for proper knowledge on uniform identification. Automating this requires a two step analogy - Object Detection (Identifying Humans in Uniform) and Object Identification/Classification.
 
 ## Dataset-Description
 
-Owing to restrictions on taking pictures of men on duty, there is a limited availability of all categories of personnel images inherently. Here we shall deal with 3 broad categories of service men - CRPF, BSF and JK (Jammu&Kashmir). Since we are working on a problem statement that requires simultaneous detection and classificaion, availability of proper annotated data further narrows down. Of all the publicly available ones, this repo utilises [data](https://universe.roboflow.com/dinesh-nariani-sakzd/unform-detection/dataset/13) because of it's integrity in terms of annotations and suitability to start model training. 
+Owing to restrictions on taking pictures of men on duty, there is a limited availability of all categories of personnel images inherently. Here we shall deal with 3 broad categories of service men - CRPF, BSF and JK (Jammu&Kashmir). Since we are working on a problem statement that requires simultaneous detection and classification, availability of well-annotated data is further limited. Of all the publicly available ones, this repo utilises [data](https://universe.roboflow.com/dinesh-nariani-sakzd/unform-detection/dataset/13) because of it's integrity in terms of annotations and suitability to start model training. 
 
 Problems encountered in this dataset:
   - **Lack of negative related samples (Type I)** 
@@ -18,7 +18,7 @@ Alternative dataset - [Lab's](https://drive.google.com/drive/folders/1OiQT6eJRwd
 
 ## Working Principle
 
-Bounding boxes work on the core principle of maximising the probability for the object to lie inside the box. It becomes necessary for the detector to correctly indetify humans/partial human-like figure initially and map out a box around the region of interest (in this case a person wearing a uniform). Here we leverage YOLO frameworks with the specialisation of object detection and classification only. 
+Bounding boxes work on the core principle of maximising the probability for the object to lie inside the box. It becomes necessary for the detector to correctly identify humans/partial human-like figure initially and map out a box around the region of interest (in this case a person wearing a uniform). Here we leverage YOLO frameworks with the specialisation of object detection and classification only. 
 
 ## Workflow 
 Step by step solution/configs for data preparation and model training:
@@ -66,8 +66,8 @@ Following are the augmentation config:
 
 ### Model Development and Training
 
--- Models ranging from YoLoV8 to YoLo11 were tested on the 5 folds with varied data augmentation configs. After careful fold-wise inspection through the hyperparameter search spaces (warm-up epoch, close_mosaic, freeze_params, etc,.)
-##### _YoLo11_ _fold4_ yield the best performing model 
+-- Models ranging from YoLoV8 to YoLoV11 were tested on the 5 folds with varied data augmentation configs. After careful fold-wise inspection through the hyperparameter search spaces (warm-up epoch, close_mosaic, freeze_params, etc,.)
+##### _YoLoV11_ _fold4_ yielded the best performing model 
 
 Metrics
 --
