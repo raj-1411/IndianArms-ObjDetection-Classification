@@ -94,7 +94,7 @@ class Trainer:
             default_config.update(config)
 
         
-        model = YOLO("yolov11m.pt")
+        model = YOLO("yolo11m.pt")
         results = model.train(**default_config)
 
         
