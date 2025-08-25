@@ -7,14 +7,7 @@ import argparse
 
 class YOLOKFoldValidator:
     def __init__(self, data_dir, n_splits=5):
-        """
-        Initialize K-Fold validator for YOLO
-
-        Args:
-            data_dir: Path to directory containing train/images and train/labels
-            n_splits: Number of folds for cross-validation
-            project_name: Name for the project directory
-        """
+        
         self.data_dir = Path(data_dir)
         self.images_dir = self.data_dir / "train" / "images"
         self.labels_dir = self.data_dir / "train" / "labels"
@@ -31,9 +24,7 @@ class YOLOKFoldValidator:
         self.fold_base_dir.mkdir(exist_ok=True)
 
     def create_fold_split(self, train_indices, val_indices, fold_num):
-        """
-        Create train/val split for a specific fold
-        """
+        
         fold_dir = self.fold_base_dir / f"fold_{fold_num}"
 
         
@@ -90,7 +81,7 @@ class YOLOKFoldValidator:
 
 
     def _print_class_distribution(self, label_dir, split_name):
-        """Print class distribution for a dataset split"""
+        
         class_counts = {0: 0, 1: 0, 2: 0, 3: 0}
         total_annotations = 0
 
@@ -111,12 +102,9 @@ class YOLOKFoldValidator:
 
 
     def create_kfold(self):
-        """
-        Run complete K-fold cross-validation
-        """
+        
         kfold = KFold(n_splits=self.n_splits, shuffle=True, random_state=42)
 
-        
         for fold_num, (train_indices, val_indices) in enumerate(kfold.split(self.image_files), 1):
             self.create_fold_split(train_indices, val_indices, fold_num)
 
