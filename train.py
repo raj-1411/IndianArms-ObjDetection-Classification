@@ -8,14 +8,6 @@ import argparse
 
 class Trainer:
     def __init__(self, data_dir, n_splits=5, project_name="KFold_Uniform_Detection"):
-        """
-        Initialize K-Fold validator for YOLO
-
-        Args:
-            data_dir: Path to directory containing train/images and train/labels
-            n_splits: Number of folds for cross-validation
-            project_name: Name for the project directory
-        """
     
         self.n_splits = n_splits
         self.project_name = project_name
@@ -23,7 +15,7 @@ class Trainer:
 
 
     def _print_class_distribution(self, label_dir, split_name):
-        """Print class distribution for a dataset split"""
+        
         class_counts = {0: 0, 1: 0, 2: 0, 3: 0}
         total_annotations = 0
 
@@ -45,9 +37,7 @@ class Trainer:
 
 
     def train_fold(self, fold_num, yaml_path, config=None):
-        """
-        Train YOLO model on a specific fold
-        """
+        
         print(f"\n{'='*50}")
         print(f"Training Fold {fold_num}/{self.n_splits}")
         print(f"{'='*50}")
@@ -109,9 +99,6 @@ class Trainer:
         }
 
     def run_kfold_validation(self, config=None):
-        """
-        Run complete K-fold cross-validation
-        """
         
         all_results = []
 
@@ -147,9 +134,7 @@ class Trainer:
         return all_results
 
     def aggregate_results(self, all_results):
-        """
-        Aggregate and display results from all folds
-        """
+        
         print(f"\n{'='*60}")
         print(f"K-FOLD CROSS-VALIDATION RESULTS ({self.n_splits} folds)")
         print(f"{'='*60}")
