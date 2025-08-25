@@ -5,10 +5,7 @@ import random
 
 
 def extract_backgrounds_from_dataset(image_dir, label_dir, samples_per_image=5):
-    """
-    Extract background patches from each of your sample images
-    Keep only the best ones
-    """
+    
     background_count = 0
 
     for img_path in Path(image_dir).glob('*.jpg'):
